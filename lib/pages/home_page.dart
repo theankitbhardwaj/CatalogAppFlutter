@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     //     await rootBundle.loadString("assets/files/catalog.json");
     final response = await http.get(Uri.parse(url));
     final catalogJson = response.body;
-    final decodeJso n = jsonDecode(catalogJson);
+    final decodeJson = jsonDecode(catalogJson);
     var productsData = decodeJson["products"];
     CatalogModel.items = List.from(productsData)
         .map<Item>((item) => Item.fromMap(item))
