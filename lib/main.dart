@@ -4,6 +4,7 @@ import 'package:flutter_catalog/pages/cart_page.dart';
 import 'package:flutter_catalog/pages/home_detail_page.dart';
 import 'package:flutter_catalog/pages/home_page.dart';
 import 'package:flutter_catalog/pages/login_page.dart';
+import 'package:flutter_catalog/pages/splash_page.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/theme.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
       routeInformationParser: VxInformationParser(),
       routerDelegate: VxNavigator(
         routes: {
-          "/": (_, __) => MaterialPage(child: LoginPage()),
+          "/": (_, __) => MaterialPage(child: SplashPage()),
           MyRoutes.homeRoute: (_, __) => MaterialPage(child: HomePage()),
           MyRoutes.loginRoute: (_, __) => MaterialPage(child: LoginPage()),
           MyRoutes.cartRoute: (_, __) => MaterialPage(child: CartPage()),

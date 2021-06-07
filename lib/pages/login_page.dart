@@ -1,7 +1,7 @@
 import 'dart:ui';
-
 import "package:flutter/material.dart";
 import 'package:flutter_catalog/utils/routes.dart';
+import 'package:flutter_catalog/utils/shared_preference.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,16 +13,19 @@ class _LoginPageState extends State<LoginPage> {
   String name = "";
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
-
+  PrefConfig prefConfig = new PrefConfig();
   moveToHome(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       setState(() {
         changeButton = true;
       });
       await Future.delayed(Duration(seconds: 1));
-      await context.vxNav.push(Uri.parse(MyRoutes.homeRoute));
+      await context.vxNav.clearAndPush(Uri.parse(MyRoutes.homeRoute));
       setState(() {
         changeButton = false;
+      });
+      prefConfig.setLogin().then((value) {
+        print("login: " + value);
       });
     }
   }

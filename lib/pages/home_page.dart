@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: context.canvasColor,
       floatingActionButton: VxBuilder(
         builder: (ctx, store, _) => FloatingActionButton(
-          onPressed: () => Navigator.pushNamed(context, MyRoutes.cartRoute),
+          onPressed: () => context.vxNav.push(Uri(path: MyRoutes.cartRoute)),
           backgroundColor: context.theme.buttonColor,
           child: Icon(
             CupertinoIcons.cart,
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ).badge(
             color: Vx.red400,
-            size: 22,
+            size: 20,
             count: _cart.items.length,
             textStyle: TextStyle(fontWeight: FontWeight.bold, color: Vx.white)),
         mutations: {AddMutation, RemoveMutation},
